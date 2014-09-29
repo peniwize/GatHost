@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>780</width>
+    <height>580</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>GAT Host</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>48</y>
+      <width>761</width>
+      <height>369</height>
+     </rect>
+    </property>
+    <property name="tabShape">
+     <enum>QTabWidget::Rounded</enum>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab_1">
+     <attribute name="title">
+      <string>Special F&amp;unctions</string>
+     </attribute>
+     <attribute name="toolTip">
+      <string>Results from the GAT &quot;Get Special Functions&quot; operation.</string>
+     </attribute>
+     <widget class="QTableWidget" name="tableWidget">
+      <property name="geometry">
+       <rect>
+        <x>6</x>
+        <y>8</y>
+        <width>745</width>
+        <height>321</height>
+       </rect>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAsNeeded</enum>
+      </property>
+      <property name="tabKeyNavigation">
+       <bool>false</bool>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <property name="gridStyle">
+       <enum>Qt::DotLine</enum>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="cornerButtonEnabled">
+       <bool>false</bool>
+      </property>
+      <property name="rowCount">
+       <number>0</number>
+      </property>
+      <property name="columnCount">
+       <number>0</number>
+      </property>
+      <attribute name="horizontalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="verticalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Last Operation &amp;Result</string>
+     </attribute>
+     <attribute name="toolTip">
+      <string>Raw data returned by the last GAT operation.</string>
+     </attribute>
+     <widget class="QTextEdit" name="lastOpRsltEdit">
+      <property name="geometry">
+       <rect>
+        <x>4</x>
+        <y>8</y>
+        <width>749</width>
+        <height>321</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Monospace</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Log</string>
+     </attribute>
+     <widget class="QPlainTextEdit" name="edtLogText">
+      <property name="geometry">
+       <rect>
+        <x>4</x>
+        <y>8</y>
+        <width>749</width>
+        <height>321</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Monospace</family>
+       </font>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+      <property name="lineWrapMode">
+       <enum>QPlainTextEdit::NoWrap</enum>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="maximumBlockCount">
+       <number>1000</number>
+      </property>
+      <property name="centerOnScroll">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="openCloseButton">
+    <property name="geometry">
+     <rect>
+      <x>16</x>
+      <y>12</y>
+      <width>85</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&amp;Open</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>104</x>
+      <y>16</y>
+      <width>101</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Serial Device:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+    <property name="textInteractionFlags">
+     <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse</set>
+    </property>
+    <property name="buddy">
+     <cstring>serialDeviceEdit</cstring>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="serialDeviceEdit">
+    <property name="geometry">
+     <rect>
+      <x>208</x>
+      <y>7</y>
+      <width>189</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="showSerialDevicesButton">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>10</y>
+      <width>33</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="edtIoLog">
+    <property name="geometry">
+     <rect>
+      <x>8</x>
+      <y>444</y>
+      <width>765</width>
+      <height>85</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Monospace</family>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
+    <property name="tabChangesFocus">
+     <bool>true</bool>
+    </property>
+    <property name="lineWrapMode">
+     <enum>QPlainTextEdit::NoWrap</enum>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+    <property name="maximumBlockCount">
+     <number>250</number>
+    </property>
+    <property name="backgroundVisible">
+     <bool>false</bool>
+    </property>
+    <property name="centerOnScroll">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkIoLogShowOnlyOneOp">
+    <property name="geometry">
+     <rect>
+      <x>8</x>
+      <y>424</y>
+      <width>201</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show only one operation</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnIoLogClear">
+    <property name="geometry">
+     <rect>
+      <x>692</x>
+      <y>422</y>
+      <width>57</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>clear</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkIoLogShowRawRxD">
+    <property name="geometry">
+     <rect>
+      <x>224</x>
+      <y>424</y>
+      <width>129</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show raw RxD</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>524</x>
+      <y>4</y>
+      <width>233</width>
+      <height>49</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>XML Character Encoding</string>
+    </property>
+    <widget class="QRadioButton" name="rdoXmlUtf8">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>24</y>
+       <width>73</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>UTF-8</string>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="rdoXmlUtf16">
+     <property name="geometry">
+      <rect>
+       <x>76</x>
+       <y>24</y>
+       <width>81</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>UTF-16</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="rdoXmlAuto">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>24</y>
+       <width>57</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>auto</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>780</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionOpenSerialDevice"/>
+    <addaction name="actionShowSerialDevices"/>
+    <addaction name="separator"/>
+    <addaction name="actionExitApplication"/>
+   </widget>
+   <widget class="QMenu" name="menu_GAT">
+    <property name="title">
+     <string>&amp;GAT</string>
+    </property>
+    <addaction name="actionGetSpecialFunctions"/>
+    <addaction name="actionGetFile"/>
+    <addaction name="actionGetComponent"/>
+    <addaction name="separator"/>
+    <addaction name="actionStatusQuery"/>
+    <addaction name="actionLastAuthenticationStatusQuery"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actionAboutApplication"/>
+   </widget>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>&amp;</string>
+    </property>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menu_GAT"/>
+   <addaction name="menuHelp"/>
+   <addaction name="menu"/>
+  </widget>
+  <action name="actionExitApplication">
+   <property name="text">
+    <string>E&amp;xit</string>
+   </property>
+  </action>
+  <action name="actionGetSpecialFunctions">
+   <property name="text">
+    <string>Get &amp;Special Functions</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionGetFile">
+   <property name="text">
+    <string>Get &amp;File</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="actionGetComponent">
+   <property name="text">
+    <string>Get C&amp;omponent</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionAboutApplication">
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+  </action>
+  <action name="actionShowSerialDevices">
+   <property name="text">
+    <string>Show Serial Devices</string>
+   </property>
+  </action>
+  <action name="actionOpenSerialDevice">
+   <property name="text">
+    <string>Open Serial Device</string>
+   </property>
+  </action>
+  <action name="actionStatusQuery">
+   <property name="text">
+    <string>Status Qu&amp;ery (0x01)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="actionLastAuthenticationStatusQuery">
+   <property name="text">
+    <string>Last A&amp;uthentication Status Query (0x02)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+U</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>openCloseButton</tabstop>
+  <tabstop>serialDeviceEdit</tabstop>
+  <tabstop>showSerialDevicesButton</tabstop>
+  <tabstop>rdoXmlUtf8</tabstop>
+  <tabstop>rdoXmlUtf16</tabstop>
+  <tabstop>rdoXmlAuto</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>tableWidget</tabstop>
+  <tabstop>lastOpRsltEdit</tabstop>
+  <tabstop>edtLogText</tabstop>
+  <tabstop>chkIoLogShowOnlyOneOp</tabstop>
+  <tabstop>chkIoLogShowRawRxD</tabstop>
+  <tabstop>btnIoLogClear</tabstop>
+  <tabstop>edtIoLog</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+ <designerdata>
+  <property name="gridDeltaX">
+   <number>4</number>
+  </property>
+  <property name="gridDeltaY">
+   <number>4</number>
+  </property>
+  <property name="gridSnapX">
+   <bool>true</bool>
+  </property>
+  <property name="gridSnapY">
+   <bool>true</bool>
+  </property>
+  <property name="gridVisible">
+   <bool>true</bool>
+  </property>
+ </designerdata>
+</ui>

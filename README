@@ -1,0 +1,54 @@
+Start of document.
+
+
+Project maintainer (and original author): Matt Ervin (matt@impsoftware.org)
+Formatting: 120 columns, 4 spaces per tab, spaces only (no tab characters)
+
+
+Building
+========
+This project is currently only being built on Linux with QtCreator (qmake).
+
+
+Include guards in header files
+==============================
+Include guards have the following structure: <FILE_NAME>__<GUID>__INCLUDED
+Note that there are two (2) '_' characters surrounding the '<GUID>' field and that
+all characters of the include guard are capitalized.  The GUID component of the
+include guard can be generated on Linux/posix systems with the following command:
+$ uuidgen | sed -r 's/-/_/g' | awk '{printf toupper($1);}'
+
+
+Coding convention
+=================
+The Qt Coding Style/Convention is followed by this project: http://qt-project.org/wiki/Coding-Conventions
+Possibly the most important aspect of the coding style is that ALL SOURCE FILES USE SPACES!  Never tabs.
+Source files are all too frequently munged by various editors when tabs are used.  ALWAYS USE 4 SPACES PER TAB!
+
+While this project endevaors to follow the Qt Coding Convention, there are some deviations.
+The most notable deviation from the documented convention may be the use of curly braces.  Due to unfortunate
+past experiences with inadvertant source file munging and typos, it has been decided that CURLY BRACES ARE ALWAYS USED
+in all contexts and CURLY BRACES ARE ALWAYS ON THEIR OWN LINE except for signle line statements.  Examples:
+if (condition) statement;      // NON-COMPLIANT!  Confusion may ensue when statement is relocated.
+if (condition) { statement; }  // COMPLIANT.
+if (condition)                 // NON-COMPLIANT!  Confusion may ensue when statement [alignment] is relocated.
+    statement;
+if (condition)                 // COMPLIANT.
+{
+    statement;
+}
+if (condition1                 // NON-COMPLIANT!  Confusion may ensue since may '{' be difficult to see or missed.
+    ...
+    op conditionN) {
+    statement1;
+    ...
+    statementN;
+}
+I have no strong/passionate opinion about coding style/conventions and do not mandate that the above conventions
+be followed in all contexts and under all conditions.  They're just general guidelines that have proven to be
+valuable through trial an error.  Do what makes the most sense to you, but please be courteous to all project
+contributors by endeavoring to follow the style/conventions of this project, and whatever deviations you encounter
+in the code, to remain consistent.  Please don't be a cowboy coder.
+
+
+End of document.
