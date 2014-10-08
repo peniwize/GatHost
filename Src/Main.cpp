@@ -13,10 +13,9 @@
 #include "MainWindow.hpp"
 #include "GatHost.hpp"
 #include "GatLinkLayer.hpp"
-#include "Version.hpp"
 
 
-char const *productBuildString = SVN_VERSION;
+char const *productBuildString = "0"; //!\todo Retrieve this from git.
 char const *applicationName = "GatHost";
 
 

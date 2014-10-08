@@ -43,8 +43,7 @@ HEADERS  += \
     GatMultipktRply.hpp \
     GatSpecialFunctionExec.hpp \
     GatPkt_StatusQueryRslt_SR81.hpp \
-    GatCmdSpec.hpp \
-    Version.hpp
+    GatCmdSpec.hpp
 
 FORMS    += \
     MainWindow.ui \

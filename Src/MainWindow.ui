@@ -384,15 +384,9 @@
     </property>
     <addaction name="actionAboutApplication"/>
    </widget>
-   <widget class="QMenu" name="menu">
-    <property name="title">
-     <string>&amp;</string>
-    </property>
-   </widget>
    <addaction name="menuFile"/>
    <addaction name="menu_GAT"/>
    <addaction name="menuHelp"/>
-   <addaction name="menu"/>
   </widget>
   <action name="actionExitApplication">
    <property name="text">
