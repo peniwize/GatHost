@@ -128,6 +128,7 @@ private slots:
     void on_actionExitApplication_triggered();
     void on_actionAboutApplication_triggered();
     void on_openCloseButton_clicked();
+    void on_getSpecialFunctionsButton_clicked();
     void on_showSerialDevicesButton_clicked();
     void on_actionShowSerialDevices_triggered();
     void on_actionGetSpecialFunctions_triggered();

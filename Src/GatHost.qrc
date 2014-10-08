@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/Icons">
+        <file alias="port">Res/port.png</file>
+        <file alias="open">Res/connect.png</file>
+        <file alias="close">Res/disconnect.png</file>
+        <file alias="binoculars">Res/binoculars.png</file>
+        <file alias="log">Res/file_extension_log.png</file>
+        <file alias="special_functions">Res/text-x-log.png</file>
+        <file alias="execute_special_function">Res/lightning.png</file>
+        <file alias="query_special_functions">Res/circulation.png</file>
+        <file alias="exit">Res/exit.png</file>
+        <file alias="erase">Res/erase.png</file>
+        <file alias="info_gold">Res/information_gold.png</file>
+        <file alias="execute_last_auth_rslts_status_query">Res/lightning_red.png</file>
+        <file alias="execute_status_query">Res/lightning_green.png</file>
+    </qresource>
+</RCC>

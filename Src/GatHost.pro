@@ -55,3 +55,6 @@ OTHER_FILES += \
     ../Notes.txt \
     ../README \
     ../LICENSE
+
+RESOURCES += \
+    GatHost.qrc

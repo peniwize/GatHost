@@ -26,7 +26,7 @@
       <x>10</x>
       <y>48</y>
       <width>761</width>
-      <height>369</height>
+      <height>365</height>
      </rect>
     </property>
     <property name="tabShape">
@@ -36,6 +36,10 @@
      <number>0</number>
     </property>
     <widget class="QWidget" name="tab_1">
+     <attribute name="icon">
+      <iconset resource="GatHost.qrc">
+       <normaloff>:/Icons/special_functions</normaloff>:/Icons/special_functions</iconset>
+     </attribute>
      <attribute name="title">
       <string>Special F&amp;unctions</string>
      </attribute>
@@ -45,10 +49,10 @@
      <widget class="QTableWidget" name="tableWidget">
       <property name="geometry">
        <rect>
-        <x>6</x>
-        <y>8</y>
-        <width>745</width>
-        <height>321</height>
+        <x>4</x>
+        <y>4</y>
+        <width>749</width>
+        <height>325</height>
        </rect>
       </property>
       <property name="verticalScrollBarPolicy">
@@ -84,6 +88,10 @@
      </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
+     <attribute name="icon">
+      <iconset resource="GatHost.qrc">
+       <normaloff>:/Icons/execute_special_function</normaloff>:/Icons/execute_special_function</iconset>
+     </attribute>
      <attribute name="title">
       <string>Last Operation &amp;Result</string>
      </attribute>
@@ -94,9 +102,9 @@
       <property name="geometry">
        <rect>
         <x>4</x>
-        <y>8</y>
+        <y>4</y>
         <width>749</width>
-        <height>321</height>
+        <height>325</height>
        </rect>
       </property>
       <property name="font">
@@ -114,6 +122,10 @@
      </widget>
     </widget>
     <widget class="QWidget" name="tab">
+     <attribute name="icon">
+      <iconset resource="GatHost.qrc">
+       <normaloff>:/Icons/log</normaloff>:/Icons/log</iconset>
+     </attribute>
      <attribute name="title">
       <string>Log</string>
      </attribute>
@@ -121,9 +133,9 @@
       <property name="geometry">
        <rect>
         <x>4</x>
-        <y>8</y>
+        <y>4</y>
         <width>749</width>
-        <height>321</height>
+        <height>325</height>
        </rect>
       </property>
       <property name="font">
@@ -148,67 +160,6 @@
       </property>
      </widget>
     </widget>
-   </widget>
-   <widget class="QPushButton" name="openCloseButton">
-    <property name="geometry">
-     <rect>
-      <x>16</x>
-      <y>12</y>
-      <width>85</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>&amp;Open</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>104</x>
-      <y>16</y>
-      <width>101</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Serial Device:</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-    </property>
-    <property name="textInteractionFlags">
-     <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse</set>
-    </property>
-    <property name="buddy">
-     <cstring>serialDeviceEdit</cstring>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="serialDeviceEdit">
-    <property name="geometry">
-     <rect>
-      <x>208</x>
-      <y>7</y>
-      <width>189</width>
-      <height>33</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="showSerialDevicesButton">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>10</y>
-      <width>33</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>...</string>
-    </property>
    </widget>
    <widget class="QPlainTextEdit" name="edtIoLog">
     <property name="geometry">
@@ -247,48 +198,6 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QCheckBox" name="chkIoLogShowOnlyOneOp">
-    <property name="geometry">
-     <rect>
-      <x>8</x>
-      <y>424</y>
-      <width>201</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Show only one operation</string>
-    </property>
-    <property name="checked">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnIoLogClear">
-    <property name="geometry">
-     <rect>
-      <x>692</x>
-      <y>422</y>
-      <width>57</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>clear</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="chkIoLogShowRawRxD">
-    <property name="geometry">
-     <rect>
-      <x>224</x>
-      <y>424</y>
-      <width>129</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Show raw RxD</string>
-    </property>
-   </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
@@ -301,51 +210,172 @@
     <property name="title">
      <string>XML Character Encoding</string>
     </property>
-    <widget class="QRadioButton" name="rdoXmlUtf8">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>24</y>
-       <width>73</width>
-       <height>23</height>
+       <width>223</width>
+       <height>24</height>
       </rect>
      </property>
-     <property name="text">
-      <string>UTF-8</string>
-     </property>
-     <property name="checked">
-      <bool>false</bool>
-     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QRadioButton" name="rdoXmlUtf8">
+        <property name="text">
+         <string>UTF-8</string>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="rdoXmlUtf16">
+        <property name="text">
+         <string>UTF-16</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="rdoXmlAuto">
+        <property name="text">
+         <string>auto</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
-    <widget class="QRadioButton" name="rdoXmlUtf16">
-     <property name="geometry">
-      <rect>
-       <x>76</x>
-       <y>24</y>
-       <width>81</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>UTF-16</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="rdoXmlAuto">
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>24</y>
-       <width>57</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>auto</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-    </widget>
+   </widget>
+   <widget class="QWidget" name="layoutWidget2">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>4</y>
+      <width>349</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="GatHost.qrc">:/Icons/port</pixmap>
+       </property>
+       <property name="buddy">
+        <cstring>serialDeviceEdit</cstring>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="serialDeviceEdit">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="showSerialDevicesButton">
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="GatHost.qrc">
+         <normaloff>:/Icons/binoculars</normaloff>:/Icons/binoculars</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="openCloseButton">
+       <property name="text">
+        <string>&amp;Open</string>
+       </property>
+       <property name="icon">
+        <iconset resource="GatHost.qrc">
+         <normaloff>:/Icons/open</normaloff>:/Icons/open</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="getSpecialFunctionsButton">
+       <property name="text">
+        <string>...</string>
+       </property>
+       <property name="icon">
+        <iconset resource="GatHost.qrc">
+         <normaloff>:/Icons/special_functions</normaloff>:/Icons/special_functions</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget3">
+    <property name="geometry">
+     <rect>
+      <x>8</x>
+      <y>419</y>
+      <width>765</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QCheckBox" name="chkIoLogShowOnlyOneOp">
+       <property name="text">
+        <string>Show only one operation</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="chkIoLogShowRawRxD">
+       <property name="text">
+        <string>Show raw RxD</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnIoLogClear">
+       <property name="text">
+        <string>clear</string>
+       </property>
+       <property name="icon">
+        <iconset resource="GatHost.qrc">
+         <normaloff>:/Icons/erase</normaloff>:/Icons/erase</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>14</width>
+         <height>14</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
@@ -389,11 +419,19 @@
    <addaction name="menuHelp"/>
   </widget>
   <action name="actionExitApplication">
+   <property name="icon">
+    <iconset resource="GatHost.qrc">
+     <normaloff>:/Icons/exit</normaloff>:/Icons/exit</iconset>
+   </property>
    <property name="text">
     <string>E&amp;xit</string>
    </property>
   </action>
   <action name="actionGetSpecialFunctions">
+   <property name="icon">
+    <iconset resource="GatHost.qrc">
+     <normaloff>:/Icons/special_functions</normaloff>:/Icons/special_functions</iconset>
+   </property>
    <property name="text">
     <string>Get &amp;Special Functions</string>
    </property>
@@ -402,6 +440,10 @@
    </property>
   </action>
   <action name="actionGetFile">
+   <property name="icon">
+    <iconset resource="GatHost.qrc">
+     <normaloff>:/Icons/execute_special_function</normaloff>:/Icons/execute_special_function</iconset>
+   </property>
    <property name="text">
     <string>Get &amp;File</string>
    </property>
@@ -410,6 +452,10 @@
    </property>
   </action>
   <action name="actionGetComponent">
+   <property name="icon">
+    <iconset resource="GatHost.qrc">
+     <normaloff>:/Icons/execute_special_function</normaloff>:/Icons/execute_special_function</iconset>
+   </property>
    <property name="text">
     <string>Get C&amp;omponent</string>
    </property>
@@ -418,21 +464,37 @@
    </property>
   </action>
   <action name="actionAboutApplication">
+   <property name="icon">
+    <iconset resource="GatHost.qrc">
+     <normaloff>:/Icons/info_gold</normaloff>:/Icons/info_gold</iconset>
+   </property>
    <property name="text">
     <string>&amp;About</string>
    </property>
   </action>
   <action name="actionShowSerialDevices">
+   <property name="icon">
+    <iconset resource="GatHost.qrc">
+     <normaloff>:/Icons/binoculars</normaloff>:/Icons/binoculars</iconset>
+   </property>
    <property name="text">
     <string>Show Serial Devices</string>
    </property>
   </action>
   <action name="actionOpenSerialDevice">
+   <property name="icon">
+    <iconset resource="GatHost.qrc">
+     <normaloff>:/Icons/open</normaloff>:/Icons/open</iconset>
+   </property>
    <property name="text">
     <string>Open Serial Device</string>
    </property>
   </action>
   <action name="actionStatusQuery">
+   <property name="icon">
+    <iconset resource="GatHost.qrc">
+     <normaloff>:/Icons/execute_status_query</normaloff>:/Icons/execute_status_query</iconset>
+   </property>
    <property name="text">
     <string>Status Qu&amp;ery (0x01)</string>
    </property>
@@ -441,6 +503,10 @@
    </property>
   </action>
   <action name="actionLastAuthenticationStatusQuery">
+   <property name="icon">
+    <iconset resource="GatHost.qrc">
+     <normaloff>:/Icons/execute_last_auth_rslts_status_query</normaloff>:/Icons/execute_last_auth_rslts_status_query</iconset>
+   </property>
    <property name="text">
     <string>Last A&amp;uthentication Status Query (0x02)</string>
    </property>
@@ -451,9 +517,10 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
-  <tabstop>openCloseButton</tabstop>
   <tabstop>serialDeviceEdit</tabstop>
   <tabstop>showSerialDevicesButton</tabstop>
+  <tabstop>openCloseButton</tabstop>
+  <tabstop>getSpecialFunctionsButton</tabstop>
   <tabstop>rdoXmlUtf8</tabstop>
   <tabstop>rdoXmlUtf16</tabstop>
   <tabstop>rdoXmlAuto</tabstop>
@@ -466,7 +533,9 @@
   <tabstop>btnIoLogClear</tabstop>
   <tabstop>edtIoLog</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="GatHost.qrc"/>
+ </resources>
  <connections/>
  <designerdata>
   <property name="gridDeltaX">

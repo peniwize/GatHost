@@ -751,6 +751,7 @@ MainWindow::syncUiWidgets()
     }
 
     ui->openCloseButton->setText(isRunning ? "Cl&ose" : "&Open");
+    ui->openCloseButton->setIcon(QIcon(QString(isRunning ? ":/Icons/open" : ":/Icons/close")));
     QColor color(palette().color(QPalette::ColorGroup::Active, isRunning
                                  ? QPalette::ColorRole::Window
                                  : QPalette::ColorRole::Base));
@@ -973,6 +974,13 @@ void
 MainWindow::on_openCloseButton_clicked()
 {
     openCloseGatDevice();
+}
+
+
+void
+MainWindow::on_getSpecialFunctionsButton_clicked()
+{
+    on_actionGetSpecialFunctions_triggered();
 }
 
 
