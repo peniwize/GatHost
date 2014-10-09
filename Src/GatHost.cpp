@@ -133,6 +133,7 @@ GatHostCmd::setCmdState(CmdState value)
     if (cmdState() != value)
     {
         cmdState_ = value;
+#ifdef DEBUG
         static char const *cmdStateNames[] = {
             "Started", // ECmdState::Started
             "Canceled", // ECmdState::Canceled
@@ -146,6 +147,7 @@ GatHostCmd::setCmdState(CmdState value)
         qDebug() << "CGatHostCmd::SetCmdState(ECmdState "
                  << (arycap(cmdStateNames) > valueAsInt ? cmdStateNames[valueAsInt] : QString().arg(valueAsInt))
                  << ")";
+#endif // #ifdef DEBUG
         onCmdStateChanged();
     }
 

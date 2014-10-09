@@ -43,6 +43,7 @@ GatLinkLayer::setState(StateId value) -> StateId
     if (state_ != value)
     {
         state_ = value;
+#ifdef DEBUG
         static char const *stateNames[] = {
             "Ready", // EState::Ready
             "WaitForNextTxTime", // EState::WaitForNextTxTime
@@ -57,6 +58,7 @@ GatLinkLayer::setState(StateId value) -> StateId
         qDebug() << "CGatLinkLayer::SetState(EState "
                  << (arycap(stateNames) > valueAsInt ? stateNames[valueAsInt] : QString().arg(valueAsInt))
                  << ")";
+#endif // #ifdef DEBUG
         emit stateChanged(this, state_);
     }
 

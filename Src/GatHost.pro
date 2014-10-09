@@ -20,6 +20,15 @@ TEMPLATE = app
 #####PRE_TARGETDEPS += Version.hpp
 QMAKE_CXXFLAGS += -std=c++0x
 
+CONFIG(release, debug|release) {
+    #message(Release)
+}
+
+CONFIG(debug, debug|release) {
+    QMAKE_CXXFLAGS += -DDEBUG
+    #message(Debug)
+}
+
 SOURCES +=\
     MainWindow.cpp \
     Main.cpp \
