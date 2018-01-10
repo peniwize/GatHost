@@ -83,7 +83,7 @@ GatLinkLayer::sendRequest(GatRqst gatRequest, void const *data, uint dataSize) -
     requestData_[1] = dataSize + 4/* command + length + CRC */; // Length byte.
     if (nullptr != data && 0 < dataSize)
     {
-        memcpy(requestData_ + 2, data, (std::min)(GAT_MAX_PYLD_SIZE, dataSize)); // Payload bytes.
+        memcpy(requestData_ + 2, data, (std::min)(static_cast<uint>(GAT_MAX_PYLD_SIZE), dataSize)); // Payload bytes.
     }
     size_t const crcIdx = dataSize + 2/* command + length */;
     uint16_t const crc = calcGatCrc16(requestData_, crcIdx);

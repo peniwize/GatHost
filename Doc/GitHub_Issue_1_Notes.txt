@@ -1,0 +1,61 @@
+(main [GUI] thread)
+MainWindow::on_getSpecialFunctionsButton_clicked()
+    MainWindow::on_actionGetSpecialFunctions_triggered()
+        std::shared_ptr<GatHostCmd> newCommand = new GetSpecialFunctionsCmd(*this, gatHost_)
+        MainWindow::scheduleGatCommand(newCommand)
+            activeGatCmd_ = newCommand;
+            gatHost_.schedule(newCommand) // This will be executed on the GatHost thread.
+                newCommand->moveToThread(this);
+---> GatHostCmd now has affinity for GatHost thread!
+                cmds_.push_back(operationCommand);
+                scheduleCmdQueueService(); // Wakes up GatHost thread and causes it tp process any pending operations.
+                    QEvent *event = new QEvent(static_cast<QEvent::Type>(LocalEventType::CmdQueueChanged));
+                    QApplication::postEvent(this, event);
+
+
+(GatHost thread - which is a Qt event loop)
+GatHost::customEvent(QEvent *event)
+    GatHostSpecialFxnCmd::begin()  // Indirectly called via "cmdInProgress_->begin()" from "GatHost::customEvent(QEvent *event)".
+        GatHostCmd::fail()
+            GatHostCmd::setCmdState(CmdState::Failed)
+                GetSpecialFunctionsCmd::onCmdStateChanged();
+                    GatHostGetSpecialFunctionsCmd::onCmdStateChanged()  // i.e. "GatHostCmd::onCmdStateChanged()"
+                        emit gatHostCmdStateChanged(this, cmdState_);
+                            GatHost::onGatHostCmdStateChanged(GatHostCmd *cmd, GatHostCmd::CmdState cmdState)
+                                QEvent *event = new QEvent(static_cast<QEvent::Type>(LocalEventType::ReleaseCmdInPgrs));
+                                QApplication::postEvent(this, event);
+                    MainWindow::operationFailed(GatHostCmd *command, QString const &specialFuncionName, QString const &description, const QString &operationResultDescription)
+                        scheduleDpc(std::bind(&MainWindow::operationFailed_Dpc, this, command, specialFuncionName, description, operationResultDescription));
+                            dpcEvent = createNewDpc(functor) // == new MainWindow::GenericDpc<tBoundFxn>(functor)
+---> dpcEvent has affinitiy for GatHost thread!
+                            MainWindow::postEvent(dpcEvent)
+                                QApplication::postEvent(this, dpcEvent)
+
+
+(GatHost thread - which is a Qt event loop)
+GatHost::customEvent(QEvent *event)
+    cmdInProgress_.reset(); // std::shared_ptr<GatHostCmd>::reset()
+---> GatHostCmd instance deleted by GatHost thread.
+
+
+(main [GUI] thread)
+MainWindow::customEvent(QEvent *event)
+    MainWindow::operationFailed_Dpc() // via std::bind(....) in "MainWindow::scheduleDpc(....)"
+        activeGatCmd_ = nullptr;  //  *** BOOM ***  Object owned by GatHost thread being deleted by main thread.
+---> The previous "*** BOOM ***" will only happen when this is executed _after_ the "GatHost::customEvent(....)" that calls "cmdInProgress_.reset()".
+
+
+
+--------- --------- --------- --------- --------- --------- --------- --------- --------- --------- --------- ---------
+
+
+(GatHost thread - which is a Qt event loop)
+GatHost::onGatHostCmdStateChanged(GatHostCmd *cmd, GatHostCmd::CmdState cmdState)
+    QEvent *event = new QEvent(static_cast<QEvent::Type>(LocalEventType::ReleaseCmdInPgrs));
+    QApplication::postEvent(this, event);
+
+
+(main [GUI] thread)
+MainWindow::customEvent(QEvent *event)
+    Dpc *dpcEvent = reinterpret_cast<Dpc *>(event);
+    (*dpcEvent)();
